@@ -1,8 +1,22 @@
-# clase06pocho
+# Movie App Video
 
-A new Flutter project.
+[![1660965372563](image/README/1660965372563.png)](https://youtu.be/SIQ8_Msh2JM "ENTREGA TP")
 
-## Getting Started
+## App Cine
+
+A new Flutter project that includes swipper and connection to a movie API.
+
+### API
+
+[API documentation](https://www.themoviedb.org/)
+
+### Swiper
+
+[Card Swiper documentation](https://pub.dev/packages/card_swiper)
+
+-----
+
+##### Example documentation
 
 This project is a starting point for a Flutter application.
 
