@@ -32,29 +32,28 @@ class FilmCredits extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Size _screen = MediaQuery.of(context).size;
+    // final Size _screen = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title:  Text('Creditos:  $film.name '),
+        title:  Text('Creditos:  ${film.title} '),
       ),
       body: ListView(
         children: [
           SizedBox(
             height: 40,
             child: Container(
-              color: Colors.yellow,
-            ),
-          ),
-          SizedBox(
-            height: 40,
-            child: Container(
-              color: Colors.red,
-              child: Text(
-                "name: $film.name /",
-                textAlign: TextAlign.center,
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(fontWeight: FontWeight.bold),
+              color: Colors.blue,
+              child: Center(
+                child: Text(
+                  "Original name: ${film.originalTitle} ",
+                  textAlign: TextAlign.center,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
 
+                ),
               ),
             ),
           ),
@@ -62,6 +61,15 @@ class FilmCredits extends StatelessWidget {
             height: 40,
             child: Container(
               color: Colors.blue,
+              child: const Center(
+                child: Text(
+                  'ELENCO',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+
+                ),
+              ),
             ),
           ),
           SizedBox(

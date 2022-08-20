@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/film_model.dart';
+import '../pages/film_credits.dart';
 
 class CardFilm extends StatelessWidget {
   const CardFilm({
@@ -13,7 +14,6 @@ class CardFilm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 150,
       child: Card(
         elevation: 5.0,
         color: Colors.teal.shade50,
@@ -28,7 +28,7 @@ class CardFilm extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('RATING : ${film.voteAverage.toString()}'),
+              Text('RATING : ${film.voteAverage.toString()}/10'),
               Row(
                 children: [
                   Container(
@@ -50,7 +50,52 @@ class CardFilm extends StatelessWidget {
               const SizedBox(height: 8),
               Text('Adultos: ' + (film.adult ? 'SI' : 'NO'),),
               const SizedBox(height: 8),
-              const Text("Creditos: ...link..."),
+              Row(
+                children: [
+                  const Text("Creditos: "),
+                  SizedBox(
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => FilmCredits(
+                              film: film,
+                            ),
+                          ),
+                        );
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8),
+                        child: Container(
+                          height: 20,
+                          width: 20,
+                          color: Colors.blue,
+                          child: TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => FilmCredits(
+                                    film: film,
+                                  ),
+                                ),
+                              );
+                              },
+                            child: const Text(
+                              '+',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 10,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ],
           ),
         ),

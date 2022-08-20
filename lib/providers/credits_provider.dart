@@ -1,6 +1,6 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
+import 'dart:developer' as developer;
 import '../models/credits_model.dart';
 import 'api_key_personal.dart';
 
@@ -18,7 +18,8 @@ class CreditsProvider {
     });
     final resp = await http.get(url);
     final decodedData = json.decode(resp.body);
-    final credits = Credits.fromJsonMap(decodedData['results']);
+    final credits = Credits.fromJsonMap(decodedData);//['cast']
+    // developer.log(credits.toString());
     return credits;
   }
 }

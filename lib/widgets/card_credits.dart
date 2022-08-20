@@ -1,4 +1,5 @@
 
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
@@ -13,12 +14,36 @@ class CardCredits extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const int a = 3;
-    return Container(
-      height: 50,
-      color: Colors.cyan,
-      child: Text(
-        'Credits $a : ${credits.cast}'
-      ),
+    return ListView(
+      children: [
+        const SizedBox(
+          height: 25,
+        ),
+        Column(
+          children: _cardList(context)
+        // 'Credits : ${credits.cast[1].name}'
+      ),]
     );
-  }}
+  }
+  List<Widget> _cardList(BuildContext context) {
+    List<Widget> items = [];
+    Widget temp;
+    if(credits.cast.isEmpty){
+      items.add(const Text(
+        'Sin datos del elenco'
+      ));
+    }else{
+      for(var element in credits.cast){
+        temp = SizedBox(
+          height: 50,
+          child: Text(
+              '${element.name} ---> ${element.character}'
+          ),
+        );
+        items.add(temp);
+      }
+    }
+    return items;
+
+  }
+}

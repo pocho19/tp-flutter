@@ -46,7 +46,7 @@ class HomePage extends StatelessWidget {
             width: _screen.width,
             height: _screen.height * 0.1,
             child: Container(
-              color: Colors.lightGreenAccent,
+              color: Colors.white,
             ),
           ),
           SizedBox(
@@ -59,17 +59,9 @@ class HomePage extends StatelessWidget {
             width: _screen.width,
             height: _screen.height * 0.2,
             child: Container(
-              color: Colors.red,
+              color: Colors.white,
             )
           ),
-          SizedBox(
-            width: _screen.width,
-            height: _screen.height * 0.3,
-            child: Container(
-              color: Colors.blueAccent,
-            )
-          ),
-
         ],
       ),
     );

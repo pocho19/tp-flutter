@@ -1,4 +1,4 @@
-import 'package:clase06pocho/pages/film_credits.dart';
+
 import 'package:flutter/material.dart';
 import '../models/film_model.dart';
 import '../widgets/card_film.dart';
@@ -26,7 +26,7 @@ class FilmDetail extends StatelessWidget {
       appBar: AppBar(
         title: Text('Detalle pelicula: ${film.title} '),
       ),
-      body: Column(
+      body: ListView(
         children: [
           SizedBox(
             width: _screen.width,
@@ -37,53 +37,50 @@ class FilmDetail extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
+          const SizedBox(
+            height: 10,
+          ),
           SizedBox(
             width: _screen.width,
-            height: _screen.height * 0.3,
-            child: Row(
-              children: [
-                SizedBox(
-                  child: FadeInImage(
-                    image: film.getPosterImg(),
-                    placeholder: const AssetImage('assets/images/no-image.jpg'),
-                    fit: BoxFit.cover,
+            height: _screen.height * 0.4,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  SizedBox(
+                    child: FadeInImage(
+                      image: film.getPosterImg(),
+                      placeholder: const AssetImage('assets/images/no-image.jpg'),
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const SizedBox(width: 5),
-                SizedBox(
-                  child: CardFilm(
-                    film: film,
+                  const SizedBox(
+                    height: 20,
                   ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            child: Text(
-              'Descripcion: ${film.overview}',
-            ),
-          ),
-          SizedBox(
-            child: GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => FilmCredits(
+                  const SizedBox(width: 5),
+                  SizedBox(
+                    child: CardFilm(
                       film: film,
                     ),
                   ),
-                );
-              },
-              child: Container(
-                color: Colors.deepPurple,
-                child: const Text('button'),
+                ],
               ),
             ),
-          )
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          SizedBox(
+            child: Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Text(
+                '  ${film.overview}',
+              ),
+            ),
+          ),
+          Container(
+
+          ),
         ],
       ),
     );

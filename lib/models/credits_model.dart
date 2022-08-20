@@ -14,8 +14,8 @@ class Credits {
 
   Credits.fromJsonMap(Map<String, dynamic> json) {
     id = json['id'];
-    cast = json['cast'];
-    crew = json['crew'];
+    cast = Actors.fromJsonList(json['cast']).items;
+    crew = Staff.fromJsonList(json['crew']).items;
   }
 
 } //Credits
@@ -63,9 +63,6 @@ class Actor{
     creditId = json['credit_id'];
     order = json['order'];
   }
-
-
-
 }
 class Actors {
   List<Actor> items = [];
